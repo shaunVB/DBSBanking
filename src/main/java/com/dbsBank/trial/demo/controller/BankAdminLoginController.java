@@ -6,15 +6,18 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.dbsBank.trial.demo.model.BankAdminLogin;
+import com.dbsBank.trial.demo.model.RegisterCustomer;
 import com.dbsBank.trial.demo.service.BankAdminLoginServiceImpl;
 import com.dbsBank.trial.demo.service.BankAdminService;
+import com.dbsBank.trial.demo.service.CustomerRegisterService;
+
 import org.springframework.stereotype.Controller;
 
 
@@ -22,9 +25,13 @@ import org.springframework.stereotype.Controller;
 public class BankAdminLoginController {
 	@Autowired
 	private BankAdminService service;
-	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.POST)
+	@Autowired
+	private CustomerRegisterService CustServ;
+	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.GET)
 	public String createBankAdmin(BankAdminLogin newbnkAdmin,Model model)
 	{
+		RegisterCustomer form=new RegisterCustomer();
+		model.addAttribute("Successful",form);
 		System.out.println(newbnkAdmin.toString());
 		BankAdminLoginServiceImpl balsi=new BankAdminLoginServiceImpl();
 		balsi.htmlName=newbnkAdmin.getUsername();
@@ -40,6 +47,16 @@ public class BankAdminLoginController {
 		{
 			return "Index";
 		}
+	}
+	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.POST)
+//	public String getRegisterDetails(Model model)
+	public String getRegisterDetails(@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
+	{
+//		RegisterCustomer registerCustomer=new RegisterCustomer();
+		registerCustomer.setCustomerID("14");
+		registerCustomer.setCountry("country");
+		CustServ.addCustomer(registerCustomer);
+		return "successful";
 	}
 
 }

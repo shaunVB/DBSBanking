@@ -125,7 +125,7 @@
             <div class="col-xl-6 col-lg-7">
                 <div class="cta-content">
 				
-                   <form>
+                   <form th:action="@{/bankAdmin/login}" th:object="${registerCustomer}" method ="POST">
 					<center>
 					<table>
 					<tr>
@@ -138,8 +138,8 @@
 					Salutation:<br>
 					<input type="radio" name="salutation" value="mr">MR. &nbsp
 					<input type="radio" name="salutation" value="ms">MS.<br>
-					First Name:<div class="cities"><input type="text" class="cities" name="firstname"></div><br>
-					Middle Name:  <div class ="cities"><input type="text" class="padLeftBank" name="middlename"></div><br>
+					First Name:<div class="cities"><input type="text" class="cities" name="firstname" ></div><br>
+					Middle Name:  <div class ="cities"><input type="text" class="padLeftBank" name="middlename" ></div><br>
 					Last Name: <div class="cities"><input type="text" class="padLeftBank" name="lastname"></div><br>
 					Gender:<br>
 					<input type="radio" name="sex" value="male">Male &nbsp
@@ -184,10 +184,6 @@
 	<center>
     <!-- cta-area-end -->
 
-  
-                        <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
             </div>
