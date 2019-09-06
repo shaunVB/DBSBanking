@@ -58,5 +58,21 @@ public class BankAdminLoginController {
 		CustServ.addCustomer(registerCustomer);
 		return "successful";
 	}
-
+	@RequestMapping(value="/bankAdmin/modify.html",method=RequestMethod.GET)
+	public String goToModify(Model model)
+	{
+		return "modify";
+		
+	}
+	@RequestMapping(value="/bankAdmin/delete.html",method=RequestMethod.GET)
+	public String goToDelete(Model model)
+	{
+		return "delete";
+		
+	}@RequestMapping(value="/bankAdmin/LoggedIn.html",method=RequestMethod.GET)
+	public String goToLoggedIn(Model model)
+	{
+		return "LoggedIn";
+		
+	}
 }

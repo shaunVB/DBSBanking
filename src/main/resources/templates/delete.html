@@ -1,9 +1,11 @@
 <!doctype html>
-<html  lang="en">
+<html class="no-js" lang="zxx">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>DBS BANK</title>
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
@@ -30,7 +32,7 @@
         <![endif]-->
 
     <!-- header-start -->
-    <header>
+    <header style="background: red;">
         <div class="header-area ">
             <div class="header-top black-bg d-none d-md-block">
                 <div class="container">
@@ -69,9 +71,9 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">REGISTER</a></li>
+                                        <li><a  href="LoggedIn.html">REGISTER</a></li>
                                         <li><a href="modify.html">MODIFY</a></li>
-                                        <li><a href="delete.html">DELETE</a></li>
+                                        <li><a class="active" href="delete.html">DELETE</a></li>
                                       <!--  <li><a href="project.html">Projects</a></li>-->
                                        <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
@@ -125,7 +127,7 @@
             <div class="col-xl-6 col-lg-7">
                 <div class="cta-content">
 				
-                   <form th:action="@{/bankAdmin/login}" th:object="${registerCustomer}" method ="POST">
+                   <form>
 					<center>
 					<table>
 					<tr>
@@ -136,37 +138,41 @@
 					<tr>
 					<td>
 					Salutation:<br>
-					<input type="radio" name="salutation" value="mr">MR. &nbsp
-					<input type="radio" name="salutation" value="ms">MS.<br>
-					First Name:<div class="cities"><input type="text" class="cities" name="firstname" ></div><br>
-					Middle Name:  <div class ="cities"><input type="text" class="padLeftBank" name="middlename" ></div><br>
-					Last Name: <div class="cities"><input type="text" class="padLeftBank" name="lastname"></div><br>
+					<input type="radio" name="salutation" value="mr">Mr. &nbsp
+					<input type="radio" name="salutation" value="ms">Ms.<br>
+					First Name:<div class="cities"><input type="text" class=".cities" name="firstname" required></div><br>
+					Middle Name:  <div class="cities"><input type="text" class=".padLeftBank" name="middlename" required></div><br>
+					Last Name: <div class="cities"><input type="text" class=".padLeftBank" name="lastname" re></div><br>
 					Gender:<br>
-					<input type="radio" name="sex" value="male">Male &nbsp
-					<input type="radio" name="sex" value="female">Female<br>
-					Email:<div class="cities"><input type="text" name="email"></div>
-					Pan:<div class="cities"><input type="text" name="pan"></div>
+					<input type="radio" name="sex" value="male">Male &nbsp;
+                    <input type="radio" name="sex" value="female">Female &nbsp;<br>
+                    <input type="radio" name="sex" value="Other">Other &nbsp;<br>
+                    
+					Email:<div class="cities"><input type="email" name="email" required="required"></div>
+					Pan:<div class="cities"><input type="text" name="pan" placeholder="Optional"></div>
 					</td>
 					</tr>
 					<tr>
 					<td>
-					Aadhar:<div class="cities"><input type="text" name="aadhar"></div>
-					Mobile:<div class="cities"><input type="text" name="mobile"></div>
+					Aadhar:<div class="cities"><input type="text" name="aadhar" required></div>
+					Mobile:<div class="cities"><input type="text" name="mobile" required></div>
 					<center>
 					<br>
 					<input type="submit" value="Verify">
 					</center>
-					</td>
+					</td> 
 					</tr>
 					<tr>
-					
 					<td>
-					Country:<select>
-					  <option value="INDIA">India</option>
-					  <option value="SINGAPORE">Singappore</option>
-					  <option value="USA">Usa</option>
-					  <option value="AUSTRALIA">Australia</option>
-					</select>
+					Nationality <select  id="nationality" name="Nationality" required>
+                        <option value="Select" selected>-select-</option>
+                        <option value="China">China</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="India">India</option>
+                        <option value="Singapore">Singapore</option>
+                    </select>
+					
 					</td>
 					</td>
 					</table>
@@ -184,11 +190,18 @@
 	<center>
     <!-- cta-area-end -->
 
+  <footer>
+
+    <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+  </footer>
+                        
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+
     <!-- footer-end -->
 
     <!-- JS here -->
