@@ -52,9 +52,9 @@ public class BankAdminLoginController {
 //	public String getRegisterDetails(Model model)
 	public String getRegisterDetails(@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
-//		RegisterCustomer registerCustomer=new RegisterCustomer();
-		registerCustomer.setCustomerID("14");
-		registerCustomer.setCountry("country");
+		//RegisterCustomer registerCustomer=new RegisterCustomer();
+		registerCustomer.setCustomerID(14);
+		//registerCustomer.setCountry("country");
 		CustServ.addCustomer(registerCustomer);
 		return "successful";
 	}

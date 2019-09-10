@@ -25,6 +25,12 @@ public String showBankAccount(Model model)
 	model.addAttribute("accountInfos",list);
 	return "accountsPage";
 }
+//@RequestMapping(value = "/?delete", method = RequestMethod.GET)
+//public String Delete(Model model)
+//{
+//	
+//}
+
 @RequestMapping(value="/sendMoney",method=RequestMethod.GET)
 public String viewSendMoneyPage(Model model)
 {

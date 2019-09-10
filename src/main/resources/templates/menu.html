@@ -2,13 +2,50 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Customer Actions</title>
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+<!--===============================================================================================-->
+
+<style type="text/css">
+.menu{
+	background-color:black;
+	padding-left: 40px;
+	padding-top: 40px;
+}
+a{
+	text-decoration: none;
+	font-size: 30px;
+	text-align: center;
+	color: white;
+	
+	
+	
+}
+a:hover {
+	color: red;
+}	
+
+</style>
 </head>
 <body>
-<div xmlns:th="http://www.thymeleaf.org" style="border:1px solid#ccc;padding:5px;margin-bottom:20px;">
+<div class="container col-mid-6 menu" xmlns:th="http://www.thymeleaf.org" style="border:1px solid#ccc;padding:5px;margin-bottom:20px;">
 <a th:href="@{/acc}">accounts</a>
 |&nbsp;
-<a th:href="@{/sendMoney}">SendMoney</a>
+<a  th:href="@{/sendMoney}">SendMoney</a>
 </div>
 
 </body>

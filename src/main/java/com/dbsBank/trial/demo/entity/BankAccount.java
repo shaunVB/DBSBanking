@@ -4,7 +4,8 @@ package com.dbsBank.trial.demo.entity;
 	import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
-	import javax.persistence.Id;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 	import javax.persistence.Table;
 	@Entity
 	@Table(name="bank_Account")
@@ -12,8 +13,8 @@ package com.dbsBank.trial.demo.entity;
 	public BankAccount() {
 		}
 	@Id
-	@GeneratedValue
-	@Column(name="id",nullable=false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private Long id;
 	public BankAccount(Long id, String fullName, double balance) {
 		super();

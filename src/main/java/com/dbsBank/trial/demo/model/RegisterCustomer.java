@@ -4,6 +4,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 
 import org.springframework.stereotype.Component;
 @Component
@@ -14,7 +15,8 @@ public class RegisterCustomer {
 		// TODO Auto-generated constructor stub
 	}
 	@Id
-	private String customerID;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int customerID=88000;
 	@GeneratedValue
 	private String salutation;
 	@GeneratedValue
@@ -41,10 +43,10 @@ public class RegisterCustomer {
 				+ ", middlename=" + middlename + ", lastname=" + lastname + ", gender=" + gender + ", email=" + email
 				+ ", pan=" + pan + ", aadhar=" + aadhar + ", mobile=" + mobile + ", country=" + country + "]";
 	}
-	public String getCustomerID() {
+	public int getCustomerID() {
 		return customerID;
 	}
-	public void setCustomerID(String customerID) {
+	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
 	}
 	public String getSalutation() {
