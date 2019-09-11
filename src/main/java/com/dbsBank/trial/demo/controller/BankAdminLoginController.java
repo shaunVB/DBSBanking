@@ -65,12 +65,12 @@ public class BankAdminLoginController {
 			return "redirect:/";
 		}
 	}
-	@RequestMapping(value="/bankAdmin/login/ind",method=RequestMethod.POST)
-//	public String getRegisterDetails(Model model)
+	@RequestMapping(value="bankAdmin/login",method=RequestMethod.GET)
 	public String getRegisterDetails(Model model,@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
-	System.out.println("INSIDE");
+	System.out.println("---------------------INSIDE----------------");
 		registerCustomer.setCustomerID(14);
+		System.out.println(registerCustomer.getCustomerID());
 		CustServ.addCustomer(registerCustomer);
 		ApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
 			OtpGenerateService otpObj = new OtpGenerateService();
@@ -97,6 +97,7 @@ public class BankAdminLoginController {
 	@RequestMapping(value="/bankAdmin/otp",method=RequestMethod.GET)
 	public String getOtp(Model model)
 	{
+		System.out.print("---------------------IN--------------------");
 		return "Successful" ;
 		
 	}

@@ -17,11 +17,12 @@ public class RegisterCustomer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerID;
-	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int account_no;
 	@GeneratedValue
 	private String salutation;
+	@GeneratedValue
+	private int account_bal=5000;
 	@GeneratedValue
 	private String firstname;
 	@GeneratedValue
@@ -49,6 +50,12 @@ public class RegisterCustomer {
 	
 	public int getAccount_no() {
 		return account_no;
+	}
+	public int getAccount_bal() {
+		return account_bal;
+	}
+	public void setAccount_bal(int account_bal) {
+		this.account_bal = account_bal;
 	}
 	public void setAccount_no(int account_no) {
 		this.account_no = account_no;
@@ -138,9 +145,6 @@ public class RegisterCustomer {
 	}
 	public void setCountry(String country) {
 		this.country = country;
-	}
-	
-	
-	
+	}	
 
 }
