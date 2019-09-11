@@ -68,7 +68,7 @@ public class BankAdminLoginController {
 		}
 	}
 	@RequestMapping(value="bankAdmin/login",method=RequestMethod.GET)
-	public String getRegisterDetails(Model model,@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
+	public String getRegisterDetails(@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
 	System.out.println("---------------------INSIDE----------------");
 		registerCustomer.setCustomerID(14);
@@ -79,7 +79,8 @@ public class BankAdminLoginController {
 			int otp = otpObj.generateOTP(registerCustomer.getUsername());
 			String sendOtp=String.valueOf(otp);
 			otpGlb=sendOtp;
-			mailService.sendOtpMessage("chaitanya.deshpande585@gmail.com","OTP-BANK", sendOtp);
+			String mailID=registerCustomer.getEmail();
+			mailService.sendOtpMessage(mailID,"OTP-BANK", sendOtp);
 			boolean bolValue = true;
 			System.out.println("IN SEND OTp");
 		if (bolValue == true) {
@@ -171,7 +172,7 @@ public class BankAdminLoginController {
 		Integer id= reg.getCustomerID();
 		System.out.print("User deleted" +id);
 	 service.delete(id);
-		return "LoggeddIn";
+		return "LoggedIn";
 	}
 	
 }
