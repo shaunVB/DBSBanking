@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dbsBank.trial.demo.repository.BankAdminDaoRepositroy;
-
+import com.dbsBank.trial.demo.repository.CustomerRegistrtionDaoRepository;
 import com.dbsBank.trial.demo.model.BankAdminLogin;
 @Service
 public class BankAdminLoginServiceImpl implements BankAdminService {
@@ -14,6 +14,8 @@ public class BankAdminLoginServiceImpl implements BankAdminService {
 	public static String htmlPass="";
 	@Autowired
 	private BankAdminDaoRepositroy bankRepo;
+	@Autowired
+	private CustomerRegistrtionDaoRepository customerRegistrtionDaoRepository;
 	@Override
 	public List<BankAdminLogin> getBankAdmin() {
 		// TODO Auto-generated method stub
@@ -43,5 +45,12 @@ public class BankAdminLoginServiceImpl implements BankAdminService {
 		System.out.print(flagSuccess);
 		return flagSuccess;
 	}
+	@Override
+	 public void delete(Integer id) {
+	  System.out.print(id+"is the customerId");
+	
+	  
+	  customerRegistrtionDaoRepository.deleteById(id);
+	 }
 
 }

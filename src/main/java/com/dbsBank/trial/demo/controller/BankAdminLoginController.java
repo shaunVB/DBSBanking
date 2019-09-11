@@ -65,7 +65,7 @@ public class BankAdminLoginController {
 			return "redirect:/";
 		}
 	}
-	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.GET)
+	@RequestMapping(value="/bankAdmin/login/ind",method=RequestMethod.POST)
 //	public String getRegisterDetails(Model model)
 	public String getRegisterDetails(Model model,@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
@@ -78,8 +78,9 @@ public class BankAdminLoginController {
 			String sendOtp=String.valueOf(otp);
 			mailService.sendOtpMessage("indrajanallapu@gmail.com","OTP-BANK", sendOtp);
 			boolean bolValue = true;
+			System.out.println("IN SEND OTp");
 		if (bolValue == true) {
-			return "successful";
+			return "Successful";
 		} else {
 			return "Index1";
 		}
@@ -112,12 +113,7 @@ public class BankAdminLoginController {
 		return "modify";
 		
 	}
-	@RequestMapping(value="/bankAdmin/delete.html",method=RequestMethod.GET)
-	public String goToDelete(Model model)
-	{
-		return "delete";
-		
-	}@RequestMapping(value="/bankAdmin/LoggedIn.html",method=RequestMethod.GET)
+	@RequestMapping(value="/bankAdmin/LoggedIn.html",method=RequestMethod.GET)
 	public String goToLoggedIn(Model model)
 	{
 		return "LoggedIn";
@@ -141,4 +137,28 @@ public class BankAdminLoginController {
 		return "Index1";
 		
 	}
+	
+	@RequestMapping(value="/bankAdmin/Successful.html",method=RequestMethod.GET)
+	public String goToSuccessful(Model model)
+	{
+		return "Successful";
+		
+	}
+	
+	@RequestMapping(value = "/bankAdmin/delete.html",method=RequestMethod.GET)
+	 public String delete(Model model)
+	 {
+		RegisterCustomer reg = new RegisterCustomer();
+		model.addAttribute("registerCustomer",reg);
+		return "delete";
+	 }
+	@RequestMapping(value= "/bankAdmin/delete.html",method=RequestMethod.POST)
+	public String delet(Model model, RegisterCustomer reg)
+	{
+		Integer id= reg.getCustomerID();
+		System.out.print("User deleted" +id);
+	 service.delete(id);
+		return "LoggeddIn";
+	}
+	
 }

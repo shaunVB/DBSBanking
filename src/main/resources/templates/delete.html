@@ -1,17 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>DBS BANK</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
-
     <!-- CSS here -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
@@ -25,12 +22,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
-
 <body>
     <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
-
     <!-- header-start -->
     <header style="background: red;">
         <div class="header-area ">
@@ -47,8 +42,8 @@
                             <div class="header-top-menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="home.html">Logout</a></li>
-                                        <!-- <li><a href="review.html">Settings</a></li>-->
+                                        <li><a href="blog.html">Log Out</a></li>
+                                        <li><a href="review.html">Settings</a></li>
                                         <li><a href="faq.html">Help</a></li>
                                     </ul>
                                 </nav>
@@ -72,8 +67,8 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a  href="LoggedIn.html">REGISTER</a></li>
-                                        <li><a href="modify.html">MODIFY</a></li>
-                                        <li><a class="active" href="delete.html">DELETE</a></li>
+                                        <li><a class="active" href="modify.html">MODIFY</a></li>
+                                        <li><a href="delete.html">DELETE</a></li>
                                       <!--  <li><a href="project.html">Projects</a></li>-->
                                        <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
@@ -88,26 +83,26 @@
                                                 <li><a href="project-details.html">project-details</a></li>
                                             </ul>
                                         </li>-->
-                                       <!--  <li><a href="contact.html">Contact</a></li>-->
+                                        <li><a href="contact.html">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3">
                             <div class="quote-area">
-                               <!-- <div class="search-bar">
+                                <div class="search-bar">
                                     <a id="search_1" href="javascript:void(0)"><i class="fa fa-search"></i></a>
                                 </div>
                                 <div class="get-quote d-none d-lg-block">
                                     <a class="boxed-btn" href="#">LogOut</a>
-                                </div>-->
+                                </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
                     </div>
-                    <!--<div class="search_input" id="search_input_box">
+                    <div class="search_input" id="search_input_box">
                         <div class="container ">
                             <form class="d-flex justify-content-between search-inner">
                                 <input type="text" class="form-control" id="search_input" placeholder="Search Here">
@@ -115,7 +110,7 @@
                                 <span class="fa fa-close" id="close_search" title="Close Search"></span>
                             </form>
                         </div>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,59 +121,19 @@
         <div class="container">
             <div class="col-xl-6 col-lg-7">
                 <div class="cta-content">
-				
-                   <form>
-					<center>
-					<table>
-					<tr>
-					<td>
-					<h1> NEW CUSTOMER REGISTRATION </h1>
-					</td>
-					</tr>
-					<tr>
-					<td>
-					Salutation:<br>
-					<input type="radio" name="salutation" value="mr">Mr. &nbsp
-					<input type="radio" name="salutation" value="ms">Ms.<br>
-					First Name:<div class="cities"><input type="text" class=".cities" name="firstname" required></div><br>
-					Middle Name:  <div class="cities"><input type="text" class=".padLeftBank" name="middlename" required></div><br>
-					Last Name: <div class="cities"><input type="text" class=".padLeftBank" name="lastname" re></div><br>
-					Gender:<br>
-					<input type="radio" name="sex" value="male">Male &nbsp;
-                    <input type="radio" name="sex" value="female">Female &nbsp;<br>
-                    <input type="radio" name="sex" value="Other">Other &nbsp;<br>
-                    
-					Email:<div class="cities"><input type="email" name="email" required="required"></div>
-					Pan:<div class="cities"><input type="text" name="pan" placeholder="Optional"></div>
-					</td>
-					</tr>
-					<tr>
-					<td>
-					Aadhar:<div class="cities"><input type="text" name="aadhar" required></div>
-					Mobile:<div class="cities"><input type="text" name="mobile" required></div>
-					<center>
-					<br>
-					<input type="submit" value="Verify">
-					</center>
-					</td> 
-					</tr>
-					<tr>
-					<td>
-					Nationality <select  id="nationality" name="Nationality" required>
-                        <option value="Select" selected>-select-</option>
-                        <option value="China">China</option>
-                        <option value="Indonesia">Indonesia</option>
-                        <option value="Thailand">Thailand</option>
-                        <option value="India">India</option>
-                        <option value="Singapore">Singapore</option>
-                    </select>
-					
-					</td>
-					</td>
-					</table>
-					</center>
-					
-				    </form>
+   
+                   <form th:action="@{/bankAdmin/delete.html}" th:object="${registerCustomer}" method ="POST">
+                   <center>
+                   <div class="form-group">
+
+<label for="From Id">From Bank Account Id</label><br>
+<input type="text" class="form-control" id="From Id" th:field="*{customerID}" required="required" /><br>
+</div>
+    
+     <button type="submit" class="btn btn-primary"  value="send">submit</button>
+     </center>
+     
+        </form>
                     <div class="cta-btn">
                         <a class="boxed-btn2 black-bg" href="#">Register<i
                                 class="Flaticon flaticon-right-arrow"></i></a>
@@ -187,23 +142,19 @@
             </div>
         </div>
     </div>
-	<center>
+ <center>
     <!-- cta-area-end -->
-
   <footer>
-
     <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
         Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
   </footer>
-                        
+                       
                     </div>
                 </div>
             </div>
         </div>
-
     <!-- footer-end -->
-
     <!-- JS here -->
     <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="../js/vendor/jquery-1.12.4.min.js"></script>
@@ -222,16 +173,12 @@
     <script src="../js/jquery.slicknav.min.js"></script>
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/plugins.js"></script>
-
-    <!--contact js
-    <script src="../js/contact.js"></script>-->
+    <!--contact js-->
+    <script src="../js/contact.js"></script>
     <script src="../js/jquery.ajaxchimp.min.js"></script>
     <script src="../js/jquery.form.js"></script>
     <script src="../js/jquery.validate.min.js"></script>
     <script src="../js/mail-script.js"></script>
-
     <script src="../js/main.js"></script>
-
 </body>
-
 </html>

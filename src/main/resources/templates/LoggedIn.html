@@ -106,7 +106,7 @@
             <div class="col-xl-6 col-lg-7">
                 <div class="cta-content">
 				
-                   <form th:action="@{/bankAdmin/login}" th:object="${registerCustomer}" method ="POST">
+                   <form th:action="@{/bankAdmin/login/ind}" th:object="${registerCustomer}" method ="POST">
 					<center>
 					<table>
 					<tr>
@@ -154,7 +154,7 @@ style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
 					
 					<center>
 					<br>
-					<input type="submit" value="Verify">
+				<!-- <input type="submit" value="Verify">-->
 					</center>
 					</td>
 					</tr>
@@ -174,10 +174,12 @@ style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
 					</center>
 					
 				    </form>
-                    <div class="cta-btn">
-                        <a class="boxed-btn2 black-bg" href="#">Register<i
+                    <!-- <div class="cta-btn">
+                        <a class="boxed-btn2 black-bg" type="submit">Register<i
                                 class="Flaticon flaticon-right-arrow"></i></a>
-                    </div>
+                    </div>-->
+                    
+                    <input type=button onClick="location.href='Successful.html'" value='Register'/>
                 </div>
             </div>
         </div>

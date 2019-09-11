@@ -8,4 +8,5 @@ public interface BankAdminService {
 	List<BankAdminLogin> getBankAdmin();
 
 	Boolean addBankAdmin(BankAdminLogin newbnkAdmin);
+	public void delete(Integer id);
 }
