@@ -44,7 +44,7 @@ public class BankAdminLoginController {
 	private UpdateCustomerService CustUpdateSer;
 	
 	
-	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.GET)
+	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.POST)
 	public String createBankAdmin(BankAdminLogin newbnkAdmin,Model model)
 	{
 		RegisterCustomer form=new RegisterCustomer();
@@ -62,14 +62,14 @@ public class BankAdminLoginController {
 		}
 		else
 		{
-			return "Index";
+			return "redirect:/";
 		}
 	}
-	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.POST)
+	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.GET)
 //	public String getRegisterDetails(Model model)
 	public String getRegisterDetails(Model model,@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
-	
+	System.out.println("INSIDE");
 		registerCustomer.setCustomerID(14);
 		CustServ.addCustomer(registerCustomer);
 		ApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
