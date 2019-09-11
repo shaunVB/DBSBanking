@@ -45,8 +45,8 @@
                             <div class="header-top-menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="blog.html">Log Out</a></li>
-                                        <li><a href="review.html">Settings</a></li>
+                                        <li><a href="home.html">Logout</a></li>
+                                       <!-- <li><a href="review.html">Settings</a></li>-->
                                         <li><a href="faq.html">Help</a></li>
                                     </ul>
                                 </nav>
@@ -86,7 +86,7 @@
                                                 <li><a href="project-details.html">project-details</a></li>
                                             </ul>
                                         </li>-->
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <!--<li><a href="contact.html">Contact</a></li>-->
                                     </ul>
                                 </nav>
                             </div>
@@ -119,22 +119,39 @@
 					Salutation:<br>
 					<input type="radio" name="salutation" value="mr">MR. &nbsp
 					<input type="radio" name="salutation" value="ms">MS.<br>
-					First Name:<div class="cities"><input type="text" class="cities" name="firstname" ></div><br>
+					First Name:<div class="cities"><input type="text" class="cities" name="firstname" ></div>
+					<div th:if="${errorMessage!=null}"
+style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
+					
 					Middle Name:  <div class ="cities"><input type="text" class="padLeftBank" name="middlename" ></div><br>
 					Last Name: <div class="cities"><input type="text" class="padLeftBank" name="lastname"></div><br>
 					Gender:<br>
 					<input type="radio" name="sex" value="male">Male &nbsp
 					<input type="radio" name="sex" value="female">Female<br>
 					Email:<div class="cities"><input type="text" name="email"></div>
+					<div th:if="${errorMessage!=null}"
+style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
+					
 					Pan:<div class="cities"><input type="text" name="pan"></div>
 					</td>
 					</tr>
 					<tr>
 					<td>
 					Aadhar:<div class="cities"><input type="text" name="aadhar"></div>
+					<div th:if="${errorMessage!=null}"
+style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
+					
 					Mobile:<div class="cities"><input type="text" name="mobile"></div><br>
-					UserName:<div class="cities"><input type="text" name="username"></div><br>
+					<div th:if="${errorMessage!=null}"
+style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
+					
+					UserName:<div class="cities"><input type="text" name="username"></div><br><div th:if="${errorMessage!=null}"
+style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
+					
 					Password:<div class="cities"><input type="password" name="password"></div>
+					<div th:if="${errorMessage!=null}"
+style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
+					
 					<center>
 					<br>
 					<input type="submit" value="Verify">
@@ -149,6 +166,7 @@
 					  <option value="SINGAPORE">Singappore</option>
 					  <option value="USA">Usa</option>
 					  <option value="AUSTRALIA">Australia</option>
+					  
 					</select>
 					</td>
 					</td>
@@ -193,8 +211,8 @@
     <script src="../js/jquery.magnific-popup.min.js"></script>
     <script src="../js/plugins.js"></script>
 
-    <!--contact js-->
-    <script src="../js/contact.js"></script>
+    <!--contact js
+    <script src="../js/contact.js"></script>-->
     <script src="../js/jquery.ajaxchimp.min.js"></script>
     <script src="../js/jquery.form.js"></script>
     <script src="../js/jquery.validate.min.js"></script>

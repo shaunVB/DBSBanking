@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dbsBank.trial.demo.exception.EmptyFieldException;
 import com.dbsBank.trial.demo.model.BankAdminLogin;
 import com.dbsBank.trial.demo.model.CustomerLogin;
 import com.dbsBank.trial.demo.model.RegisterCustomer;
@@ -66,24 +67,24 @@ public class BankAdminLoginController {
 	}
 	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.POST)
 //	public String getRegisterDetails(Model model)
-	public String getRegisterDetails(@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
+	public String getRegisterDetails(Model model,@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
-		//RegisterCustomer registerCustomer=new RegisterCustomer();
+	
 		registerCustomer.setCustomerID(14);
-		//registerCustomer.setCountry("country");
 		CustServ.addCustomer(registerCustomer);
 		ApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
-		OtpGenerateService otpObj = new OtpGenerateService();
-		int otp = otpObj.generateOTP(registerCustomer.getUsername());
-		String sendOtp=String.valueOf(otp);
-		mailService.sendOtpMessage("indrajanallapu@gmail.com","OTP-BANK", sendOtp);
-		boolean bolValue = true;
+			OtpGenerateService otpObj = new OtpGenerateService();
+			int otp = otpObj.generateOTP(registerCustomer.getUsername());
+			String sendOtp=String.valueOf(otp);
+			mailService.sendOtpMessage("indrajanallapu@gmail.com","OTP-BANK", sendOtp);
+			boolean bolValue = true;
 		if (bolValue == true) {
 			return "successful";
 		} else {
 			return "Index1";
 		}
 	}
+	
 	@RequestMapping(value="/bankAdmin/modify.html",method=RequestMethod.POST)
 	public String getupdateDetails(@ModelAttribute("updateCustomer") UpdateCustomer updateCustomer)
 	{
@@ -95,7 +96,7 @@ public class BankAdminLoginController {
 	@RequestMapping(value="/bankAdmin/otp",method=RequestMethod.GET)
 	public String getOtp(Model model)
 	{
-		return "successful" ;
+		return "Successful" ;
 		
 	}
 	@RequestMapping(value="/bankAdmin/otp",method=RequestMethod.POST)
@@ -120,6 +121,24 @@ public class BankAdminLoginController {
 	public String goToLoggedIn(Model model)
 	{
 		return "LoggedIn";
+		
+	}
+	@RequestMapping(value="/bankAdmin/home.html",method=RequestMethod.GET)
+	public String goTohome(Model model)
+	{
+		return "home";
+		
+	}
+	@RequestMapping(value="/bankAdmin/index.html",method=RequestMethod.GET)
+	public String goToindex(Model model)
+	{
+		return "index";
+		
+	}
+	@RequestMapping(value="/bankAdmin/Index1.html",method=RequestMethod.GET)
+	public String goToIndex1(Model model)
+	{
+		return "Index1";
 		
 	}
 }

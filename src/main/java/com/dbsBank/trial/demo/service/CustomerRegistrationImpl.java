@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.dbsBank.trial.demo.repository.CustomerRegistrtionDaoRepository;
-
+import com.dbsBank.trial.demo.exception.EmptyFieldException;
 import com.dbsBank.trial.demo.model.RegisterCustomer;
 @Service
 public class CustomerRegistrationImpl implements  CustomerRegisterService{
@@ -14,7 +14,11 @@ public class CustomerRegistrationImpl implements  CustomerRegisterService{
 	private CustomerRegistrtionDaoRepository custRepo;
 	@Override
 	public RegisterCustomer addCustomer(RegisterCustomer newCustomerRegister) {
-		return custRepo.save(newCustomerRegister);
+		// TODO Auto-generated method stub
+			return custRepo.save(newCustomerRegister);
+		
+		
+		
 	}
 
 }
