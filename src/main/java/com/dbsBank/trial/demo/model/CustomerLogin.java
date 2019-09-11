@@ -7,13 +7,22 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
 @Component
-@Table(name="customerlogin")
+@Table(name="custi")
 @Entity
 public class CustomerLogin {
 	
 	@Id
 	private String username;
 	private String password;
+	private int account_no;
+	public int getAccount_no() {
+		return account_no;
+	}
+
+	public void setAccount_no(int account_no) {
+		this.account_no = account_no;
+	}
+
 	public CustomerLogin() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -37,8 +46,10 @@ public class CustomerLogin {
 
 	@Override
 	public String toString() {
-		return "CustomerLogin [username=" + username + ", password=" + password + "]";
+		return "CustomerLogin [username=" + username + ", password=" + password + ", account_no=" + account_no + "]";
 	}
+
+	
 	
 	
 

@@ -1,5 +1,9 @@
 package com.dbsBank.trial.demo.form;
 
+import org.springframework.data.repository.config.CustomRepositoryImplementationDetector;
+
+import com.dbsBank.trial.demo.service.CustomerServiceImpl;
+
 public class SendMoneyForm {
 	public SendMoneyForm(Long fromAccountId, Long toAccountId, Double amount) {
 		super();
@@ -9,9 +13,12 @@ public class SendMoneyForm {
 	}
 	public SendMoneyForm() {
 	}
+	int acc_numb=CustomerServiceImpl.account_number;
+	String name=CustomerServiceImpl.usernameHold;
 	private Long fromAccountId;
 	public Long getFromAccountId() {
-		return fromAccountId;
+		return (long) this.acc_numb;
+		//fromAccountId;
 	}
 	public void setFromAccountId(Long fromAccountId) {
 		this.fromAccountId = fromAccountId;

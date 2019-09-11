@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<p>SUCCESSFUL</p>
-</body>
-</html>
+  <form th:action="@{/bankAdmin/otp}" th:object="${otp}" method ="POST">
+ <h1> ENTER OTP </h1>
+ OTP:<div class="cities"><input type="text" name="otp"></div><br>
+ <input type="submit" value="Verify">
+  </form>

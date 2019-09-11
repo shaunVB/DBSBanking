@@ -16,7 +16,10 @@ public class RegisterCustomer {
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int customerID=88000;
+	private int customerID;
+	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int account_no;
 	@GeneratedValue
 	private String salutation;
 	@GeneratedValue
@@ -37,11 +40,38 @@ public class RegisterCustomer {
 	private String mobile;
 	@GeneratedValue
 	private String country;
+	@GeneratedValue
+	private String username;
+	@GeneratedValue
+	private String password;
+	
+	
+	
+	public int getAccount_no() {
+		return account_no;
+	}
+	public void setAccount_no(int account_no) {
+		this.account_no = account_no;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
 	@Override
 	public String toString() {
-		return "RegisterCustomer [customerID=" + customerID + ", salutation=" + salutation + ", firstname=" + firstname
-				+ ", middlename=" + middlename + ", lastname=" + lastname + ", gender=" + gender + ", email=" + email
-				+ ", pan=" + pan + ", aadhar=" + aadhar + ", mobile=" + mobile + ", country=" + country + "]";
+		return "RegisterCustomer [customerID=" + customerID + ", AccountNo=" + account_no + ", salutation=" + salutation
+				+ ", firstname=" + firstname + ", middlename=" + middlename + ", lastname=" + lastname + ", gender="
+				+ gender + ", email=" + email + ", pan=" + pan + ", aadhar=" + aadhar + ", mobile=" + mobile
+				+ ", country=" + country + ", username=" + username + ", password=" + password + "]";
 	}
 	public int getCustomerID() {
 		return customerID;

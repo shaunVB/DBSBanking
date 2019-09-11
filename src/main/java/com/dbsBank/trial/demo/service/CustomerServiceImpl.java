@@ -10,9 +10,10 @@ import com.dbsBank.trial.demo.repository.CustomerDaoRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-
 	public static  String htmlName="";
 	public static String htmlPass="";
+	public static  String usernameHold="";
+	public static int account_number;
 	@Autowired
 	CustomerDaoRepository cusRepo;
 	@Override
@@ -23,7 +24,9 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Boolean addCus(CustomerLogin cus) {
 		// TODO Auto-generated method stub
-		
+		CustomerLogin cl=new CustomerLogin();
+		this.usernameHold=cl.getUsername();
+		this.account_number=cl.getAccount_no();
 		List<CustomerLogin> adminList=cusRepo.findAll();
 		Boolean flagSuccess=false;
 		

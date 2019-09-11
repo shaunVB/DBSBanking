@@ -31,6 +31,7 @@
 <div th:if="${errorMessage!=null}" style="color:red;font-style:italic" th:utext="${errorMessage}">..</div>
 <div class="container col-md-6">
 <h2>Send Money</h2>
+
 </div><br>
 <div class="alert alert-primary" th:if="${errorMessage!=null}" style="color:whitesmoke;font-style:italic" th:utext="${errorMessage}">..</div>
 <div class="container col-md-6">
@@ -38,7 +39,8 @@
 <div class="form-group">
 
 <label for="From Id">From Bank Account Id</label><br>
-<input type="text" class="form-control" id="From Id" th:field="*{fromAccountId}" required="required" /><br>
+<!--<input type="text" class="form-control" id="From Id" th:field="${sendMoneyForm.acc_numb}" required="required"/><br>-->
+  <input type="text" name="fromAccountId" value=${sendMoneyForm.acc_numb} readonly/><br>
 </div>
 <div class="form-group">
 <label for="To Id">To Bank Account Id</label><br>
