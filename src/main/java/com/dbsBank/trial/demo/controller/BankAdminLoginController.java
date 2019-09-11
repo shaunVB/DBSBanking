@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dbsBank.trial.demo.exception.EmptyFieldException;
 import com.dbsBank.trial.demo.model.BankAdminLogin;
 import com.dbsBank.trial.demo.model.CustomerLogin;
+import com.dbsBank.trial.demo.model.OtpEntity;
 import com.dbsBank.trial.demo.model.RegisterCustomer;
 import com.dbsBank.trial.demo.model.UpdateCustomer;
 import com.dbsBank.trial.demo.service.BankAdminLoginServiceImpl;
@@ -43,6 +44,7 @@ public class BankAdminLoginController {
 	@Autowired
 	private UpdateCustomerService CustUpdateSer;
 	
+	public static String otpGlb="";
 	
 	@RequestMapping(value="/bankAdmin/login",method=RequestMethod.POST)
 	public String createBankAdmin(BankAdminLogin newbnkAdmin,Model model)
@@ -76,7 +78,8 @@ public class BankAdminLoginController {
 			OtpGenerateService otpObj = new OtpGenerateService();
 			int otp = otpObj.generateOTP(registerCustomer.getUsername());
 			String sendOtp=String.valueOf(otp);
-			mailService.sendOtpMessage("indrajanallapu@gmail.com","OTP-BANK", sendOtp);
+			otpGlb=sendOtp;
+			mailService.sendOtpMessage("chaitanya.deshpande585@gmail.com","OTP-BANK", sendOtp);
 			boolean bolValue = true;
 			System.out.println("IN SEND OTp");
 		if (bolValue == true) {
@@ -95,16 +98,25 @@ public class BankAdminLoginController {
 		return "LoggedIn";
 	}
 	@RequestMapping(value="/bankAdmin/otp",method=RequestMethod.GET)
-	public String getOtp(Model model)
+	public String getOtp(Model model,@ModelAttribute("getOtp") OtpEntity otp)
 	{
-		System.out.print("---------------------IN--------------------");
-		return "Successful" ;
+		String p=otp.getOtp();
+		System.out.println(p);
+		if(BankAdminLoginController.otpGlb.equals(p))
+		{
+			System.out.print("---------------------IN--------------------");
+			return "LoggedIn" ;
+				
+		}
+		System.out.print("---------------------Fail--------------------");
+		return "successful" ;
 		
 	}
 	@RequestMapping(value="/bankAdmin/otp",method=RequestMethod.POST)
 	public String successOtp(Model model,@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
 		System.out.println(registerCustomer.getUsername());
+		System.out.println("POST -------IN");
 		return "LoggedIn" ;
 		
 	}
