@@ -87,9 +87,11 @@ public class BankAdminLoginController {
 	@RequestMapping(value="/bankAdmin/modify.html",method=RequestMethod.POST)
 	public String getupdateDetails(@ModelAttribute("updateCustomer") UpdateCustomer updateCustomer)
 	{
-		updateCustomer.setCustomerID("1");
+		System.out.println(updateCustomer.getCustomerID());
+		//updateCustomer.setCustomerID("1");
+		updateCustomer.setCustomerID(updateCustomer.getCustomerID());
 		updateCustomer.setAccount_bal(5000);
-		//System.out.println("Inside BaLC");
+		
 		CustUpdateSer.updateCustomer(updateCustomer);
 		return "modifymessage";
 	}
