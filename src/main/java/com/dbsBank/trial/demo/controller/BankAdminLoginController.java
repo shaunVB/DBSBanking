@@ -1,24 +1,16 @@
 package com.dbsBank.trial.demo.controller;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.dbsBank.trial.demo.entity.BankAccount;
-import com.dbsBank.trial.demo.exception.EmptyFieldException;
 import com.dbsBank.trial.demo.model.BankAdminLogin;
 import com.dbsBank.trial.demo.model.CustomerList;
-import com.dbsBank.trial.demo.model.CustomerLogin;
 import com.dbsBank.trial.demo.model.OtpEntity;
 import com.dbsBank.trial.demo.model.RegisterCustomer;
 import com.dbsBank.trial.demo.model.UpdateCustomer;
@@ -30,9 +22,6 @@ import com.dbsBank.trial.demo.service.CustomerService;
 import com.dbsBank.trial.demo.service.EmailService;
 import com.dbsBank.trial.demo.service.OtpGenerateService;
 import com.dbsBank.trial.demo.service.UpdateCustomerService;
-
-import org.springframework.stereotype.Controller;
-
 
 @Controller
 public class BankAdminLoginController {
@@ -76,8 +65,8 @@ public class BankAdminLoginController {
 	public String getRegisterDetails(@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
 	System.out.println("---------------------INSIDE----------------");
-		registerCustomer.setCustomerID(14);
-		System.out.println(registerCustomer.getCustomerID());
+		//registerCustomer.setCustomerID(14);
+		//System.out.println(registerCustomer.getCustomerID());
 		CustServ.addCustomer(registerCustomer);
 		ApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
 			OtpGenerateService otpObj = new OtpGenerateService();
@@ -85,9 +74,9 @@ public class BankAdminLoginController {
 			String sendOtp=String.valueOf(otp);
 			otpGlb=sendOtp;
 			String mailID=registerCustomer.getEmail();
-			mailService.sendOtpMessage(mailID,"OTP-BANK", sendOtp);
+			mailService.sendOtpMessage(mailID,"OTP-BOH", "Pleasse verify the otp for your account\n"+sendOtp);
 			boolean bolValue = true;
-			System.out.println("IN SEND OTp");
+			//System.out.println("IN SEND OTp");
 		if (bolValue == true) {
 			return "Successful";
 		} else {
@@ -99,7 +88,8 @@ public class BankAdminLoginController {
 	public String getupdateDetails(@ModelAttribute("updateCustomer") UpdateCustomer updateCustomer)
 	{
 		updateCustomer.setCustomerID("1");
-		System.out.println("Inside BaLC");
+		updateCustomer.setAccount_bal(5000);
+		//System.out.println("Inside BaLC");
 		CustUpdateSer.updateCustomer(updateCustomer);
 		return "modifymessage";
 	}
@@ -107,14 +97,14 @@ public class BankAdminLoginController {
 	public String getOtp(Model model,@ModelAttribute("getOtp") OtpEntity otp)
 	{
 		String p=otp.getOtp();
-		System.out.println(p);
+		//System.out.println(p);
 		if(BankAdminLoginController.otpGlb.equals(p))
 		{
-			System.out.print("---------------------IN--------------------");
+			//System.out.print("---------------------IN--------------------");
 			return "registeredmessage" ;
 				
 		}
-		System.out.print("---------------------Fail--------------------");
+		//System.out.print("---------------------Fail--------------------");
 		return "successful" ;
 		
 	}
@@ -122,7 +112,7 @@ public class BankAdminLoginController {
 	public String successOtp(Model model,@ModelAttribute("registerCustomer") RegisterCustomer registerCustomer)
 	{
 		System.out.println(registerCustomer.getUsername());
-		System.out.println("POST -------IN");
+		//System.out.println("POST -------IN");
 		return "LoggedIn" ;
 		
 	}
@@ -203,8 +193,8 @@ public class BankAdminLoginController {
 	public String delet(Model model, RegisterCustomer reg)
 	{
 		Integer id= reg.getCustomerID();
-		System.out.print("User deleted" +id);
-	 service.delete(id);
+		//System.out.print("User deleted" +id);
+		service.delete(id);
 		return "deletemessage";
 	}
 	@RequestMapping(value="/bankAdmin/showList.html",method=RequestMethod.GET)

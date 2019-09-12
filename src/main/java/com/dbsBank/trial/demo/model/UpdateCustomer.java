@@ -41,7 +41,21 @@ public class UpdateCustomer {
 	private String username;
 	@GeneratedValue
 	private String password;
+	@GeneratedValue
+	private int account_bal;
 	
+	public int getAccount_no() {
+		return account_no;
+	}
+	public void setAccount_no(int account_no) {
+		this.account_no = account_no;
+	}
+	public int getAccount_bal() {
+		return account_bal;
+	}
+	public void setAccount_bal(int account_bal) {
+		this.account_bal = account_bal;
+	}
 	public String getUsername() {
 		return username;
 	}

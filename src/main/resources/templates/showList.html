@@ -5,11 +5,8 @@
     <meta charset="utf-8">
     <title>DBS BANK</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
-    <!-- Place favicon.ico in the root directory -->
-
+    
     <!-- CSS here -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
@@ -21,15 +18,10 @@
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/slicknav.css">
     <link rel="stylesheet" href="../css/style.css">
-    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     <style>th,td{padding:5px;}</style>
 </head>
 
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
     <!-- header-start -->
     <header>
         <div class="header-area ">
@@ -102,9 +94,11 @@
         </div>
     </header><br>
     <!-- header-end -->
+    
+    
      <form th:action="@{/bankAdmin/showList.html}" th:object="${registerCustomer}" method ="POST"></form>
-				<div style="background: #FF631A;" class="container col-md-6">
-                  
+				<center> <div style="background: #FF631A;" class="container col-md-6">
+                  </center>
 					
 					<center>
 						<table class="table table-bordered">
@@ -127,10 +121,7 @@
 						</tbody>
 						</table>
 						</center>
-						
-					
-					
-				    
+						  
 				    </div>
                    
       
