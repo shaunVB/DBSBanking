@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dbsBank.trial.demo.entity.BankAccount;
 import com.dbsBank.trial.demo.exception.EmptyFieldException;
 import com.dbsBank.trial.demo.model.BankAdminLogin;
+import com.dbsBank.trial.demo.model.CustomerList;
 import com.dbsBank.trial.demo.model.CustomerLogin;
 import com.dbsBank.trial.demo.model.OtpEntity;
 import com.dbsBank.trial.demo.model.RegisterCustomer;
 import com.dbsBank.trial.demo.model.UpdateCustomer;
+import com.dbsBank.trial.demo.repository.CustomerListDao;
 import com.dbsBank.trial.demo.service.BankAdminLoginServiceImpl;
 import com.dbsBank.trial.demo.service.BankAdminService;
 import com.dbsBank.trial.demo.service.CustomerRegisterService;
@@ -43,6 +46,8 @@ public class BankAdminLoginController {
 	private CustomerRegisterService CustServ;
 	@Autowired
 	private UpdateCustomerService CustUpdateSer;
+	@Autowired
+	private CustomerListDao customerList;
 	
 	public static String otpGlb="";
 	
@@ -195,5 +200,11 @@ public class BankAdminLoginController {
 	 service.delete(id);
 		return "deletemessage";
 	}
-	
+	@RequestMapping(value="/bankAdmin/showList.html",method=RequestMethod.GET)
+	public String showCustomerList(Model model)
+	{
+		List<CustomerList> cusList=customerList.findAll();
+		model.addAttribute("CustList",cusList);
+		return "showList";
+	}
 }
