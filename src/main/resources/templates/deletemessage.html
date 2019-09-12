@@ -2,10 +2,25 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title></title>
+<title>Delete</title>
+<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+<style>
+.body{
+    background-image: url("vib.jpg");
+    background-color:#3333;
+    background-size: cover;
+  }
+</style>
+
 </head>
 <body>
-<h1>SUCCESSFULLY DELETED</h1>
-<input type=button onClick="location.href='delete.html'" value='OK'/>
+<div class="alert alert-success alert-dismissible fade show">
+            <strong>Success!</strong> Customer Deleted Successfully
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            
+        </div>
+        <div> 
+            <input style="margin-left: 20px" class="btn btn-dark btn-block" type=button onClick="location.href='delete.html'" value='<< GO BACK'/>
+        </div>
 </body>
 </html>
