@@ -180,6 +180,13 @@ public class BankAdminLoginController {
 		
 	}
 	
+	@RequestMapping(value="/bankAdmin/faq.html",method=RequestMethod.GET)
+	public String goTofaq(Model model)
+	{
+		return "faq";
+		
+	}
+	
 	@RequestMapping(value = "/bankAdmin/delete.html",method=RequestMethod.GET)
 	 public String delete(Model model)
 	 {
