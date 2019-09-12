@@ -96,7 +96,7 @@ public class BankAdminLoginController {
 		updateCustomer.setCustomerID("1");
 		System.out.println("Inside BaLC");
 		CustUpdateSer.updateCustomer(updateCustomer);
-		return "LoggedIn";
+		return "modifymessage";
 	}
 	@RequestMapping(value="/bankAdmin/otp",method=RequestMethod.GET)
 	public String getOtp(Model model,@ModelAttribute("getOtp") OtpEntity otp)
@@ -106,7 +106,7 @@ public class BankAdminLoginController {
 		if(BankAdminLoginController.otpGlb.equals(p))
 		{
 			System.out.print("---------------------IN--------------------");
-			return "LoggedIn" ;
+			return "registeredmessage" ;
 				
 		}
 		System.out.print("---------------------Fail--------------------");
@@ -159,6 +159,27 @@ public class BankAdminLoginController {
 		
 	}
 	
+	@RequestMapping(value="/bankAdmin/registeredmessage.html",method=RequestMethod.GET)
+	public String goToregisteredmessage(Model model)
+	{
+		return "registeredmessage";
+		
+	}
+	
+	@RequestMapping(value="/bankAdmin/modifymessage.html",method=RequestMethod.GET)
+	public String goTomodifymessage(Model model)
+	{
+		return "modifymessage";
+		
+	}
+	
+	@RequestMapping(value="/bankAdmin/deletemessage.html",method=RequestMethod.GET)
+	public String goTodeletemessage(Model model)
+	{
+		return "deletemessage";
+		
+	}
+	
 	@RequestMapping(value = "/bankAdmin/delete.html",method=RequestMethod.GET)
 	 public String delete(Model model)
 	 {
@@ -172,7 +193,7 @@ public class BankAdminLoginController {
 		Integer id= reg.getCustomerID();
 		System.out.print("User deleted" +id);
 	 service.delete(id);
-		return "LoggedIn";
+		return "deletemessage";
 	}
 	
 }
