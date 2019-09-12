@@ -1,5 +1,50 @@
+<<<<<<< Updated upstream
   <form th:action="@{/bankAdmin/otp}" th:object="${getOtp}" method ="GET">
  <h1> ENTER OTP </h1>
  OTP:<div class="cities"><input type="text" name="otp"></div><br>
  <input type="submit" value="Verify">
   </form>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../images/icons/favicon.ico">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../css/util.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+<hr>
+<div class="container col-md-6 bg-light">
+  
+  <div class="form-control"   aria-describedby="emailHelp" placeholder="Enter OTP">
+  
+    <form th:action="@{/bankAdmin/otp}" th:object="${otp}" method ="POST">
+ 
+<label for="otp">Enter OTP</label>
+ <div class="cities"><input class="border border-success" type="text" name="otp"></div><br>
+ <button class="btn btn-primary" type="submit" value="Verify">Verify</button>
+  </form>	
+  </div>
+  <hr>
+
+ 
+ </body>
+  </html>
+ 
+
