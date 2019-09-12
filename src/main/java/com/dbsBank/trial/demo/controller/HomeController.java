@@ -12,6 +12,7 @@ import com.dbsBank.trial.demo.dao.BankAccountDao;
 import com.dbsBank.trial.demo.entity.BankAccount;
 import com.dbsBank.trial.demo.exception.BankTransactionException;
 import com.dbsBank.trial.demo.form.SendMoneyForm;
+import com.dbsBank.trial.demo.model.CustomerList;
 
 @Controller
 public class HomeController {

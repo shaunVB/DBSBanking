@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">  
+
+<style>
+.body{
+    background-image: url("vib.jpg");
+    background-color:#3333;
+    background-size: cover;
+  }
+.card-img-top{
+  height: 300px;
+  width: 50%;
+  background-color: powderblue;
+}
+.title-name {
+  text-align: center;
+}
+.container{
+  margin-top: 100px;
+  margin-left:200px;
+  
+}
+</style>
 </head>
-<body>
-<input type=button onClick="location.href='index.html'" value='ADMINLOGIN' >
-<input type=button onClick="location.href='Index1.html'" value='CUSTOMERLOGIN' >
+<body class="body">
+  <div class="container">
+  <div class="row"> 
+
+
+
+      <div class = "col-md-7">
+
+          <div class="card" style="width:300px">
+              <img class="card-img-top" src="/images/profile-admin.png" alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h4 class="title-name">BOH Admin</h4>
+                <p class="card-text"></p>
+                <input class="btn btn-primary btn-block"  type="button" onClick="location.href='index.html'" value='Admin Login' >
+              </div>
+            </div>
+    
+      </div>
+        
+    
+      <div class = col-md-5 > 
+    
+    
+    
+          <div class="card" style="width:300px">
+              <img class="card-img-top" src="/images/profile.png" alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h4 class="title-name">BOH Customer</h4>
+                <p class="card-text"></p>
+                <input class="btn btn-primary btn-block"  type="button" onClick="location.href='Index1.html'" value='Customer Login' >
+              </div>
+            </div>
+    
+      </div>
+
+  </div>
+  
+     
+
+  </div>
+  
+  
+</div>
 </body>
 </html>

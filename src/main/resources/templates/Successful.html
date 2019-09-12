@@ -1,9 +1,3 @@
-
-  <form th:action="@{/bankAdmin/otp}" th:object="${getOtp}" method ="GET">
- <h1> ENTER OTP </h1>
- OTP:<div class="cities"><input type="text" name="otp"></div><br>
- <input type="submit" value="Verify">
-  </form>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,9 +27,9 @@
   
   <div class="form-control"   aria-describedby="emailHelp" placeholder="Enter OTP">
   
-    <form th:action="@{/bankAdmin/otp}" th:object="${otp}" method ="POST">
+    <form th:action="@{/bankAdmin/otp}" th:object="${getOtp}" method ="GET">
  
-<label for="otp">Enter OTP</label>
+<label for="otp">Enter the OTP sent to the email</label>
  <div class="cities"><input class="border border-success" type="text" name="otp"></div><br>
  <button class="btn btn-primary" type="submit" value="Verify">Verify</button>
   </form>	

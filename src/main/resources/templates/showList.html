@@ -69,10 +69,10 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="Logged.html">REGISTER</a></li>
+                                        <li><a  href="LoggedIn.html">REGISTER</a></li>
                                         <li><a href="modify.html">MODIFY</a></li>
                                         <li><a href="delete.html">DELETE</a></li>
-                                        <li><a href="showList.html">CUSTOMERS</a></li>
+                                        <li><a class="active" href="showList.html">CUSTOMERS</a></li>
                                       <!--  <li><a href="project.html">Projects</a></li>-->
                                        <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
                                             <ul class="submenu">
@@ -107,72 +107,29 @@
             <div class="col-xl-6 col-lg-7">
                 <div class="cta-content">
 				
-                   <form th:action="@{/bankAdmin/login}" th:object="${registerCustomer}" method ="GET">
+                   <form th:action="@{/bankAdmin/showList.html}" th:object="${registerCustomer}" method ="POST">
 					<center>
-					<table>
-					<tr>
-					<td>
-					<h1> NEW CUSTOMER REGISTRATION </h1>
-					</td>
-					</tr>
-					<tr>
-					<td>
-					Salutation:<br>
-					<input type="radio" name="salutation" value="mr">MR. &nbsp
-					<input type="radio" name="salutation" value="ms">MS.<br>
-					First Name:<div class="cities"><input type="text" class="cities" name="firstname" required="required"></div>
-					<div th:if="${errorMessage!=null}"
-style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
-					
-					Middle Name:  <div class ="cities"><input type="text" class="padLeftBank" name="middlename" required="required"></div><br>
-					Last Name: <div class="cities"><input type="text" class="padLeftBank" name="lastname" required="required"></div><br>
-					Gender:<br>
-					<input type="radio" name="sex" value="male">Male &nbsp
-					<input type="radio" name="sex" value="female">Female<br>
-					Email:<div class="cities"><input type="email" name="email" required="required"></div>
-					<div th:if="${errorMessage!=null}"
-style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
-					
-					Pan:<div class="cities"><input type="text" name="pan"></div>
-					</td>
-					</tr>
-					<tr>
-					<td>
-					Aadhar:<div class="cities"><input type="text" name="aadhar" required="required"></div>
-					<div th:if="${errorMessage!=null}"
-style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
-					
-					Mobile:<div class="cities"><input type="text" name="mobile" required="required"></div><br>
-					<div th:if="${errorMessage!=null}"
-style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
-					
-					UserName:<div class="cities"><input type="text" name="username" required="required"></div><br><div th:if="${errorMessage!=null}"
-style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
-					
-					Password:<div class="cities"><input type="password" name="password" required="required"></div>
-					<div th:if="${errorMessage!=null}"
-style="color:white;font-style:italic" th:utext="${errorMessage}">..</div><br>
-					
-					Country:<select>
-					  <option value="INDIA">India</option>
-					  <option value="SINGAPORE">Singappore</option>
-					  <option value="USA">Usa</option>
-					  <option value="AUSTRALIA">Australia</option>
-					  
-					</select>
-					<center>
-					<br>
-				<input type="submit" value="REGISTER">
-					</center>
-					</td>
-					</tr>
-					<tr>
-					
-					<td>
-					
-					</td>
-					</td>
-					</table>
+					<div class="container col-md-6">
+						<table class="table">
+						<thead class="thead-dark">
+						<tr>
+						<th>CUSTOMER ID</th>
+						<th>NAME</th>
+						<th>ACC_NO</th>
+						<th>BALANCE</th>
+						<th>EMAIL</th></tr>
+						</thead>
+						<tbody>
+						<tr th:each="cuslis:${CustList}">
+						<td th:utext="${cuslis.customerID}">..</td>
+						<td th:utext="${cuslis.firstname}">..</td>
+						<td th:utext="${cuslis.account_no}">..</td>
+						<td th:utext="${cuslis.account_bal}">..</td>
+						<td th:utext="${cuslis.email}">..</td>
+						</tr>
+						</tbody>
+						</table>
+						</div>
 					</center>
 					
 				    </form>
