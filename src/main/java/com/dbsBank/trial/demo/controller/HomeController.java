@@ -55,5 +55,13 @@ catch(BankTransactionException e){
 }
 return "redirect:/";
 }
+@RequestMapping(value="/showDetails",method=RequestMethod.GET)
+public String showDetails(Model model)
+{
+//	List<CustomerList> ls=bankAccountDAO.listCust(1);
+//	System.out.println(ls.toString());
+//	model.addAttribute("custDetails",ls);
+	return "showCustDetails";
+}
 }
 
