@@ -111,9 +111,10 @@
    
                    <form th:action="@{/bankAdmin/delete.html}" th:object="${registerCustomer}" method ="POST">
                    <center>
-                   <div class="form-group">
-
-<label for="From Id">From Bank Account Id</label><br>
+                   
+                   
+ <div class="form-group">
+<label  for="From Id">From Bank Account Id</label><br>
 <input type="text" class="form-control" id="From Id" th:field="*{customerID}" required="required" /><br>
 </div>
     

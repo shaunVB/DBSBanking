@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../css/slicknav.css">
     <link rel="stylesheet" href="../css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <style>th,td{padding:5px;}</style>
 </head>
 
 <body>
@@ -99,18 +100,14 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header><br>
     <!-- header-end -->
-<center>
-    <div class="cta-area cta-bg-1">
-        <div class="container">
-            <div class="col-xl-6 col-lg-7">
-                <div class="cta-content">
-				
-                   <form th:action="@{/bankAdmin/showList.html}" th:object="${registerCustomer}" method ="POST">
+     <form th:action="@{/bankAdmin/showList.html}" th:object="${registerCustomer}" method ="POST"></form>
+				<div style="background: #FF631A;" class="container col-md-6">
+                  
+					
 					<center>
-					<div class="container col-md-6">
-						<table class="table">
+						<table class="table table-bordered">
 						<thead class="thead-dark">
 						<tr>
 						<th>CUSTOMER ID</th>
@@ -129,30 +126,17 @@
 						</tr>
 						</tbody>
 						</table>
-						</div>
-					</center>
+						</center>
+						
 					
-				    </form>
-                    <!-- <div class="cta-btn">
-                        <a class="boxed-btn2 black-bg" type="submit">Register<i
-                                class="Flaticon flaticon-right-arrow"></i></a>
-                    </div>-->
-                    
-                   <!--   <input type=submit  value='Register'/>-->
-                </div>
-            </div>
-        </div>
-    </div>
-	<center>
+					
+				    
+				    </div>
+                   
+      
     <!-- cta-area-end -->
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer-end -->
-
+     
     <!-- JS here -->
     <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="../js/vendor/jquery-1.12.4.min.js"></script>
