@@ -1,6 +1,10 @@
 package com.dbsBank.trial.demo.form;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import org.springframework.data.repository.config.CustomRepositoryImplementationDetector;
+import org.springframework.stereotype.Component;
 
 import com.dbsBank.trial.demo.service.CustomerServiceImpl;
 

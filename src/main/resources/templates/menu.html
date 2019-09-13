@@ -21,34 +21,41 @@
 <!--===============================================================================================-->
 
 <style type="text/css">
-.menu{
-	background-color:black;
-	padding-left: 40px;
-	padding-top: 40px;
-}
+
 a{
-	text-decoration: none;
-	font-size: 30px;
-	text-align: center;
-	color: white;
-	
-	
-	
+  font-size: 22px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
 }
-a:hover {
-	color: red;
-}	
+.navbar{
+  background-color: black;
+  
+}
 
 </style>
 </head>
 <body>
-<div class="container col-mid-6 menu" xmlns:th="http://www.thymeleaf.org" style="border:1px solid#ccc;padding:5px;margin-bottom:20px;">
-<a th:href="@{/acc}">accounts</a>
-|&nbsp;
-<a  th:href="@{/sendMoney}">SendMoney</a>
-&nbsp;
-<a  th:href="@{/showDetails}">Show Account Details</a>
-</div>
-
+  <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <a class="navbar-brand" href=""><img src="/images/icons/logo-new.jpg"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" xmlns:th="http://www.thymeleaf.org">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/acc}">Accounts <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/sendMoney}">Send Money</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/showDetails}">Account Details</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+<br>
 </body>
 </html>
