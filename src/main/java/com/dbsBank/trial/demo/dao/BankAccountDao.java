@@ -49,7 +49,7 @@ public List<com.dbsBank.trial.demo.entity.BankAccount>listTransactions(){
 
 @SuppressWarnings("unchecked")
 public List<com.dbsBank.trial.demo.entity.BankAccount>listBankAccountInfo(){
-	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.fullName,e.balance) from "+BankAccount.class.getName()+" e" +" where id = 103";
+	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.fullName,e.balance) from "+BankAccount.class.getName()+" e" +" where id = 2";
 	Query query=entityManager.createQuery(sql,com.dbsBank.trial.demo.entity.BankAccount.class);
 	return query.getResultList();
 }
