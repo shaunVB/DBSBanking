@@ -12,7 +12,7 @@ import com.dbsBank.trial.demo.service.CustomerServiceImpl;
 
 @Controller
 public class CustomerLoginController {
-
+public static String glbUsername="";
 		@Autowired
 		private CustomerService service;
 		@RequestMapping(value = "/customer/login", method = RequestMethod.GET)
@@ -27,6 +27,7 @@ public class CustomerLoginController {
 			CustomerServiceImpl cusimpl=new CustomerServiceImpl();
 
 			cusimpl.htmlName=newCustomer.getUsername();
+			glbUsername=cusimpl.htmlName;
 			cusimpl.htmlPass=newCustomer.getPassword();
 			System.out.println(cusimpl.htmlName+":"+cusimpl.htmlPass);
 			Boolean bolValue=service.addCus(newCustomer);

@@ -41,6 +41,15 @@ import javax.persistence.Id;
 
 
 
+	public BankAccount(Long id, String fullName, double balance) {
+		super();
+		this.id = id;
+		this.balance = balance;
+		this.fullName = fullName;
+	}
+
+
+
 	public BankAccount() {
 		super();
 		// TODO Auto-generated constructor stub
