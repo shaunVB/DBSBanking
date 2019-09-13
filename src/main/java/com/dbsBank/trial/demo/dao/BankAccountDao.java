@@ -63,7 +63,7 @@ if(account==null)
 }
 double newBalance=account.getBalance()+amount;
 if(account.getBalance()+amount<5000) {
-	throw new com.dbsBank.trial.demo.exception.BankTransactionException("Money in the account"+id+"not enough("+account.getBalance()+")");
+	throw new com.dbsBank.trial.demo.exception.BankTransactionException("Money in the account"+id+"not enough(" +account.getBalance()+ ") Please ensure min Balance 5000");
 }
 account.setBalance(newBalance);
 }
