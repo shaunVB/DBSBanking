@@ -10,9 +10,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dbsBank.trial.demo.controller.CustomerLoginController;
 import com.dbsBank.trial.demo.entity.BankAccount;
 import com.dbsBank.trial.demo.exception.BankTransactionException;
 import com.dbsBank.trial.demo.model.CustomerList;
+import com.dbsBank.trial.demo.model.CustomerLogin;
 import com.dbsBank.trial.demo.repository.CustomerListDao;
 
 @Repository
@@ -53,7 +55,7 @@ if(account==null)
 	throw new com.dbsBank.trial.demo.exception.BankTransactionException("Account not found"+id);
 }
 double newBalance=account.getBalance()+amount;
-if(account.getBalance()+amount<0) {
+if(account.getBalance()+amount<5000) {
 	throw new com.dbsBank.trial.demo.exception.BankTransactionException("Money in the account"+id+"not enough("+account.getBalance()+")");
 }
 account.setBalance(newBalance);
@@ -63,8 +65,18 @@ account.setBalance(newBalance);
 public void sendMoney(Long fromAccountId,Long toAccountId,double amount) throws BankTransactionException
 
 {
+	String s=CustomerLoginController.glbUsername;
+	System.out.print("Username is :"+s);
+	String sql="Select new "+com.dbsBank.trial.demo.model.CustomerList.class.getName()+"( e.id) from "+CustomerList.class.getName()+" e" +" where e.username = " +s;
+	Query query=entityManager.createQuery(sql,CustomerLogin.class);
+	System.out.println("CUSTOMER ID \t"+query.getResultList().toString());
+
 addAmount(toAccountId,amount);
 addAmount(Long.valueOf("2"),-amount);
+if(amount>10000.00)
+{
+	System.out.print("amount is :" +amount);
+}
 }
 @SuppressWarnings("unchecked")
 public List<com.dbsBank.trial.demo.model.CustomerList>listCustDetails(){
