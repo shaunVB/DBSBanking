@@ -6,11 +6,7 @@ import com.dbsBank.trial.demo.service.CustomerServiceImpl;
 
 public class SendMoneyForm {
 	public SendMoneyForm(Long fromAccountId, Long toAccountId, Double amount) {
-		super();
-		this.fromAccountId = fromAccountId;
-		this.toAccountId = toAccountId;
-		this.amount = amount;
-	}
+}
 	public SendMoneyForm() {
 	}
 	int acc_numb=CustomerServiceImpl.account_number;
