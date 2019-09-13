@@ -49,6 +49,7 @@ public class BankAdminLoginController {
 		BankAdminLoginServiceImpl balsi=new BankAdminLoginServiceImpl();
 		balsi.htmlName=newbnkAdmin.getUsername();
 		balsi.htmlPass=newbnkAdmin.getPassword();
+		
 		System.out.println(balsi.htmlName+":"+balsi.htmlPass);
 		Boolean bolValue=service.addBankAdmin(newbnkAdmin);
 		System.out.println(bolValue);

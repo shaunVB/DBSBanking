@@ -6,19 +6,26 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dbsBank.trial.demo.controller.BankAdminLoginController;
 import com.dbsBank.trial.demo.controller.CustomerLoginController;
 import com.dbsBank.trial.demo.entity.BankAccount;
 import com.dbsBank.trial.demo.exception.BankTransactionException;
 import com.dbsBank.trial.demo.model.CustomerList;
 import com.dbsBank.trial.demo.model.CustomerLogin;
 import com.dbsBank.trial.demo.repository.CustomerListDao;
+import com.dbsBank.trial.demo.service.EmailService;
+import com.dbsBank.trial.demo.service.OtpGenerateService;
 
 @Repository
 public class BankAccountDao {
+	@Autowired
+	EmailService mailService;
 public BankAccountDao() {
 				}
 
@@ -42,7 +49,7 @@ public List<com.dbsBank.trial.demo.entity.BankAccount>listTransactions(){
 
 @SuppressWarnings("unchecked")
 public List<com.dbsBank.trial.demo.entity.BankAccount>listBankAccountInfo(){
-	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.fullName,e.balance) from "+BankAccount.class.getName()+" e" +" where id = 2";
+	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.fullName,e.balance) from "+BankAccount.class.getName()+" e" +" where id = 103";
 	Query query=entityManager.createQuery(sql,com.dbsBank.trial.demo.entity.BankAccount.class);
 	return query.getResultList();
 }
@@ -65,16 +72,23 @@ account.setBalance(newBalance);
 public void sendMoney(Long fromAccountId,Long toAccountId,double amount) throws BankTransactionException
 
 {
-	String s=CustomerLoginController.glbUsername;
-	System.out.print("Username is :"+s);
-	String sql="Select new "+com.dbsBank.trial.demo.model.CustomerList.class.getName()+"( e.id) from "+CustomerList.class.getName()+" e" +" where e.username = " +s;
-	Query query=entityManager.createQuery(sql,CustomerLogin.class);
-	System.out.println("CUSTOMER ID \t"+query.getResultList().toString());
+	
+//	String s=CustomerLoginController.glbUsername;
+//	System.out.print("Username is :"+s);
+//	String sql="Select new "+com.dbsBank.trial.demo.model.CustomerList.class.getName()+"( e.id) from "+CustomerList.class.getName()+" e" +" where e.username = " +s;
+//	Query query=entityManager.createQuery(sql,CustomerLogin.class);
+//	System.out.println("CUSTOMER ID \t"+query.getResultList().toString());
+	
+
 
 addAmount(toAccountId,amount);
-addAmount(Long.valueOf("2"),-amount);
+addAmount(Long.valueOf("103"),-amount);
 if(amount>10000.00)
 {
+	ApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
+	OtpGenerateService otpObj = new OtpGenerateService();
+	//String mailID=registerCustomer.getEmail();
+	mailService.sendOtpMessage("indrajanallapu@gmail.com","OTP-BOH", "Amount greater than 10000\n");
 	System.out.print("amount is :" +amount);
 }
 }

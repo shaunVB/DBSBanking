@@ -81,12 +81,13 @@ public String goTohome1(Model model)
 }
 
 
-@RequestMapping(value="/logout",method=RequestMethod.GET)
-public String gologout(Model model)
-{
-	return "home1";
-	
-}
+//@RequestMapping(value="/logout",method=RequestMethod.GET)
+//public String gologout(Model model)
+//{
+//	return "home1";
+//	
+//}
+
 @RequestMapping(value="/customer/index.html",method=RequestMethod.GET)
 public String goToindex(Model model)
 {
@@ -99,6 +100,9 @@ public String goToIndex1(Model model)
 	return "Index1";
 	
 }
+
+
+
 
 
 }
