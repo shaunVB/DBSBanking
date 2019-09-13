@@ -27,11 +27,43 @@ background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996
 background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
-
+.navbar{
+  background-color: black;
+  
+}
+a{
+  font-size: 22px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bold;
+}
 </style>
 </head>
 <body>
-<th:block th:include="/menu"></th:block>
+<!-- <th:block th:include="/menu"></th:block> -->	
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <a class="navbar-brand" href=""><img src="/images/icons/logo-new.jpg"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" xmlns:th="http://www.thymeleaf.org">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link" th:href="@{/acc}">Account<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/sendMoney}">Send Money</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/showDetails}">Transaction</a>
+        </li>
+        <li class="nav-item">
+        
+          <a class="nav-link" href="home1.html">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 <div class="container col-md-6">
 <h2>Details</h2>
 </div><br>
