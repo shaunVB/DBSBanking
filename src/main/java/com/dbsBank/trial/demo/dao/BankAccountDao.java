@@ -49,7 +49,7 @@ public List<com.dbsBank.trial.demo.entity.BankAccount>listTransactions(){
 
 @SuppressWarnings("unchecked")
 public List<com.dbsBank.trial.demo.entity.BankAccount>listBankAccountInfo(){
-	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.fullName,e.balance) from "+BankAccount.class.getName()+" e" +" where id = 2";
+	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.fullName,e.balance) from "+BankAccount.class.getName()+" e" +" where id = 103";
 	Query query=entityManager.createQuery(sql,com.dbsBank.trial.demo.entity.BankAccount.class);
 	return query.getResultList();
 }
@@ -63,7 +63,7 @@ if(account==null)
 }
 double newBalance=account.getBalance()+amount;
 if(account.getBalance()+amount<5000) {
-	throw new com.dbsBank.trial.demo.exception.BankTransactionException("Money in the account"+id+"not enough("+account.getBalance()+")");
+	throw new com.dbsBank.trial.demo.exception.BankTransactionException("Money in the account"+id+"not enough(" +account.getBalance()+ ") Please ensure min Balance 5000");
 }
 account.setBalance(newBalance);
 }

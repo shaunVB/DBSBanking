@@ -93,7 +93,7 @@ public class BankAdminLoginController {
 		//updateCustomer.setCustomerID("1");
 		updateCustomer.setCustomerID(updateCustomer.getCustomerID());
 		updateCustomer.setAccount_bal(10000);
-		
+		updateCustomer.setAccount_no(100122);
 		CustUpdateSer.updateCustomer(updateCustomer);
 		return "modifymessage";
 	}
