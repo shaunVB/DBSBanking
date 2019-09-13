@@ -69,6 +69,7 @@ public class BankAdminLoginController {
 		//registerCustomer.setCustomerID(14);
 		//System.out.println(registerCustomer.getCustomerID());
 		CustServ.addCustomer(registerCustomer);
+		RegisterCustomer.num=RegisterCustomer.num+1;
 		ApplicationContext context = new FileSystemXmlApplicationContext("applicationContext.xml");
 			OtpGenerateService otpObj = new OtpGenerateService();
 			int otp = otpObj.generateOTP(registerCustomer.getUsername());

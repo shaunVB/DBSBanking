@@ -11,18 +11,19 @@ import org.springframework.stereotype.Component;
 @Table(name="custi")
 @Entity
 public class RegisterCustomer {
+	public static int num=100102;
 	public RegisterCustomer() {
 		// TODO Auto-generated constructor stub
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int customerID;
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int account_no;
+	@GeneratedValue//(strategy = GenerationType.AUTO)
+	private int account_no=num;
 	@GeneratedValue
 	private String salutation;
 	@GeneratedValue
-	private int account_bal=5000;
+	private int account_bal=10000;
 	@GeneratedValue
 	private String firstname;
 	@GeneratedValue
