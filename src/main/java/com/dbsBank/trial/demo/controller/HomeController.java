@@ -53,7 +53,7 @@ catch(BankTransactionException e){
 	model.addAttribute("errorMessage","Error:"+e.getMessage());
 	return "/sendMoneyPage";
 }
-return "redirect:/";
+return "sendMoneyPage";
 }
 @RequestMapping(value="/showDetails",method=RequestMethod.GET)
 public String showDetails(Model model)
