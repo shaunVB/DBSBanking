@@ -31,17 +31,20 @@
 <table class="table">
 <thead class="thead-dark">
 <tr>
+<th>From_Acc_NO</th>
+<!-- <th>Cust_ID</th> -->
 <th>Customer_Name</th>
-<th>Acc_NO</th>
-<th>Balance</th>
-<th>Cust_ID</th></tr>
+<th>To_Acc_NO</th>
+<th>amount</th>
+</tr>
 </thead>
 <tbody>
-<tr th:each="accountInfo:${custDetails}">
-<td th:utext="${accountInfo.firstname}">..</td>
-<td th:utext="${accountInfo.account_no}">..</td>
-<td th:utext="${accountInfo.account_bal}">..</td>
-<td th:utext="${accountInfo.customerID}">..</td>
+<tr th:each="accountInfo:${transcactions}">
+<td th:utext="${accountInfo.fromAccount}">..</td>
+<!--  <td th:utext="${accountInfo.id}">..</td> -->
+<td th:utext="${accountInfo.fullName}">..</td>
+<td th:utext="${accountInfo.toAccount}">..</td>
+<td th:utext="${accountInfo.amount}">..</td>
 </tr>
 </tbody>
 </table>

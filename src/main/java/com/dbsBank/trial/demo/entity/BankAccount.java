@@ -1,7 +1,9 @@
 package com.dbsBank.trial.demo.entity;
 
 
-	import javax.persistence.Column;
+	import java.util.Date;
+
+import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,18 +12,79 @@ import javax.persistence.Id;
 	@Entity
 	@Table(name="bank_Account")
 	public class BankAccount {
-	public BankAccount() {
-		}
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id;
-	public BankAccount(Long id, String fullName, double balance) {
+	@Column(name="balance",nullable=false)
+	private double balance;
+	@Column(name="full_name",length=50,nullable=false)
+	private String fullName;
+	private Date date;
+	private Long toAccount;
+	private Long fromAccount;
+	private double amount;
+
+	
+
+	public BankAccount(Long id, double balance, String fullName, Date date, Long toAccount, Long fromAccount,
+			double amount) {
 		super();
 		this.id = id;
-		this.fullName = fullName;
 		this.balance = balance;
+		this.fullName = fullName;
+		this.date = date;
+		this.toAccount = toAccount;
+		this.fromAccount = fromAccount;
+		this.amount = amount;
 	}
+
+
+
+	public BankAccount() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+	public double getAmount() {
+		return amount;
+	}
+
+
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public Long getFromAccount() {
+		return fromAccount;
+	}
+
+
+
+	public void setFromAccount(Long fromAccount) {
+		this.fromAccount = fromAccount;
+	}
+
+
+	public Long getToAccount() {
+		return toAccount;
+	}
+
+	public void setToAccount(Long toAccount) {
+		this.toAccount = toAccount;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
 		return "BankAccount [id=" + id + ", fullName=" + fullName + ", balance=" + balance + "]";
@@ -44,10 +107,7 @@ import javax.persistence.Id;
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
-	@Column(name="full_name",length=50,nullable=false)
-	private String fullName;
-	@Column(name="balance",nullable=false)
-	private double balance;
+	
 	}
 
 

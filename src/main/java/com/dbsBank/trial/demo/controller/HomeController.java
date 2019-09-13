@@ -32,6 +32,15 @@ public String showBankAccount(Model model)
 //	
 //}
 
+@RequestMapping(value="/showDetails", method = RequestMethod.GET)
+public String showTransactions(Model model)
+{
+	List<BankAccount> lstra = bankAccountDAO.listTransactions();
+	model.addAttribute("transcactions",lstra);
+	//List<BankAccount> list = bankAccountDAO.
+	return "showCustDetails";
+}
+
 @RequestMapping(value="/sendMoney",method=RequestMethod.GET)
 public String viewSendMoneyPage(Model model)
 {
@@ -55,14 +64,14 @@ catch(BankTransactionException e){
 }
 return "sendMoneyPage";
 }
-@RequestMapping(value="/showDetails",method=RequestMethod.GET)
-public String showDetails(Model model)
-{
-//	List<CustomerList> ls=bankAccountDAO.listCust(1);
-//	System.out.println(ls.toString());
-//	model.addAttribute("custDetails",ls);
-	return "showCustDetails";
-}
+//@RequestMapping(value="/showDetails",method=RequestMethod.GET)
+//public String showDetails(Model model)
+//{
+////	List<CustomerList> ls=bankAccountDAO.listCust(1);
+////	System.out.println(ls.toString());
+////	model.addAttribute("custDetails",ls);
+//	return "showCustDetails";
+//}
 
 @RequestMapping(value="/customer/home1.html",method=RequestMethod.GET)
 public String goTohome1(Model model)

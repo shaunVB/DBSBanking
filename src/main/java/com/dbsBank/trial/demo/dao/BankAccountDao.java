@@ -29,6 +29,15 @@ public BankAccount findbyId(Long id) {
 public CustomerList findbyId1(int id) {
 	return this.entityManager.find(CustomerList.class,id);
 }
+
+@SuppressWarnings("unchecked")
+public List<com.dbsBank.trial.demo.entity.BankAccount>listTransactions(){
+	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.balance,e.fullName,e.date,e.toAccount,e.fromAccount,e.amount) from "+BankAccount.class.getName()+" e" +" where fromAccount =103";
+	//String sql =  "select * from bank_account where from_account=103";
+	Query query=entityManager.createQuery(sql,com.dbsBank.trial.demo.entity.BankAccount.class);
+	return query.getResultList();
+}
+
 @SuppressWarnings("unchecked")
 public List<com.dbsBank.trial.demo.entity.BankAccount>listBankAccountInfo(){
 	String sql="Select new "+com.dbsBank.trial.demo.entity.BankAccount.class.getName()+"(e.id,e.fullName,e.balance) from "+BankAccount.class.getName()+" e" +" where id = 2";
